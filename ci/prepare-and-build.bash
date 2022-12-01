@@ -36,11 +36,12 @@ if test -f application-local.properties; then
 else
     echo "You are running inside Jenkins! Using parameters fed from the agent."
 
+
+    env > ${LOGS_DIR}/env.txt
+
     mkdir -p ~/.gnupg
     echo "${GIT_SIGNING_KEY_PASSWORD}" | /usr/bin/gpg --batch --yes --passphrase-fd 0 --import "${GIT_SIGNING_KEY}"
     echo "${MAVEN_SIGNING_KEY_PASSWORD}" | /usr/bin/gpg --batch --yes --passphrase-fd 0 --import "${MAVEN_SIGNING_KEY}"
-    ls -ld ~/.gnupg
-    ls -lR ~/.gnupg
     /usr/bin/gpg -k
 
     function spring-data-release-shell {

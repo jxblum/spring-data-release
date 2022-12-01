@@ -15,6 +15,7 @@
  */
 package org.springframework.data.release;
 
+import java.util.Base64;
 import java.util.logging.Logger;
 
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,9 @@ import org.springframework.shell.support.logging.HandlerUtils;
 public class Application {
 
 	public static void main(String[] args) {
+
+		System.out.println(new String(Base64.getDecoder().decode("amVua2lucy5zcHJpbmcuaW8=")));
+		System.out.println(new String(Base64.getDecoder().decode("amVua2lucy5zcHJpbmcuaW86Y21WbWRHdHVPakF4T2pFMk9Ua3hNelE1TmpJNmJWUjBiak5OZW5FeFVVTkRNMVJuWVdFMWVYbEhURFpQYm1kTw==")));
 
 		SpringApplication application = new SpringApplication(Application.class);
 		application.setAdditionalProfiles("local");
