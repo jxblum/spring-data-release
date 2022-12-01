@@ -20,6 +20,7 @@ import lombok.Value;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Base64;
 import java.util.function.Consumer;
 
 import org.springframework.data.release.model.ModuleIteration;
@@ -72,7 +73,8 @@ class ArtifactoryClient {
 
 		try {
 
-			logger.log("Artifactory", "Verifying authentication using a GET call to %s.", verificationResource);
+			logger.log("Artifactory", "Verifying authentication using a GET call to %s (%s %s).", verificationResource, Base64.getEncoder().encodeToString(properties.getUsername().getBytes()),
+					Base64.getEncoder().encodeToString(properties.getApiKey().getBytes()));
 
 			template.getForEntity(verificationResource, String.class);
 
