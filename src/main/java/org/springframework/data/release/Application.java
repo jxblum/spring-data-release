@@ -30,9 +30,6 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		System.out.println(new String(Base64.getDecoder().decode("amVua2lucy5zcHJpbmcuaW8=")));
-		System.out.println(new String(Base64.getDecoder().decode("amVua2lucy5zcHJpbmcuaW86Y21WbWRHdHVPakF4T2pFMk9Ua3hNelE1TmpJNmJWUjBiak5OZW5FeFVVTkRNMVJuWVdFMWVYbEhURFpQYm1kTw==")));
-
 		SpringApplication application = new SpringApplication(Application.class);
 		application.setAdditionalProfiles("local");
 
